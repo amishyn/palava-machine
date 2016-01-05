@@ -159,6 +159,7 @@ module PalavaMachine
       members_with_statuses = []
       members.each { |peer_id|
         @redis.hgetall("store:connection:status:#{peer_id}") do |status_array|
+          puts "Status: #{status_array.inspect}"
           members_with_statuses << { peer_id: peer_id, status: Hash[status_array.each_slice(2).to_a] }
           yield members_with_statuses if members_with_statuses.size == member_count
         end

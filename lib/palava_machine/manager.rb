@@ -113,6 +113,12 @@ module PalavaMachine
       end
     end
 
+    def kick_out(connection_id, peer_id)
+      info "kick_out"
+      info "#{connection_id} <kick_out>: <#{peer_id}>"
+      leave_room(peer_id)
+    end
+
     def join_room(connection_id, room_id, status)
       return_error connection_id, 'no room id given' if !room_id || room_id.empty?
       return_error connection_id, 'room id too long' if room_id.size > 50

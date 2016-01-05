@@ -10,6 +10,7 @@ module PalavaMachine
       leave_room:    [],
       send_to_peer:  [:peer_id, :data],
       update_status: [:status],
+      kick_out:      [:peer_id]
     }
 
     def initialize(message, connection_id = nil)

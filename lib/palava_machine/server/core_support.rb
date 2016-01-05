@@ -11,7 +11,7 @@ module PalavaMachine
       end
 
       def ws_message_action(ws, event)
-        manager.debug "#{event.connection_id} <#{event.name}>"
+        manager.debug "#{event.connection_id} action of event:<#{event.name}>"
         manager.public_send(event.name, event.connection_id, *event.arguments)
       end
 
